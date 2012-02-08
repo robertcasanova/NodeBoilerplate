@@ -1,0 +1,18 @@
+<html>
+	<head>
+		<script src="/socket.io/socket.io.js"></script>
+		<script>
+		  var socket = io.connect('http://localhost:3000');
+		  document.onmousemove = function(e) {
+		  	socket.emit('sensorData', { x: e.clientX, y: e.clientY });
+		  	this.getElementsByTagName('p')[0].innerHTML = e.clientX;
+		  	this.getElementsByTagName('p')[1].innerHTML = e.clientY;
+		  }
+		</script>
+	</head>
+	<body>
+		<h1>Client</h1>
+		<p></p>
+		<p></p>
+	</body>
+</html>	
